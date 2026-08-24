@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="NBAForecast model performance, methodology, and limitations."
+        >
+        <title>Model / Methodology | NBAForecast</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body data-page="methodology">
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a class="brand" href="index.html">
+                    <img class="brand-logo" src="../images/nba-logo.png" alt="" aria-hidden="true">
+                    <span>NBAForecast</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Forecast Overview</a>
+                    <a href="season.html">Season Projections</a>
+                    <a href="bracket.html">Playoff Probabilities</a>
+                    <a href="predict.html">Matchup Predictor</a>
+                    <a href="methodology.html" aria-current="page">Model / Methodology</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="page-heading" aria-labelledby="page-title">
+                <p class="eyebrow">Model / Methodology</p>
+                <h1 id="page-title">Holdout-Tested Forecast Model</h1>
+                <p>
+                    The model was tested on the full 2025-26 season before it was
+                    retrained on all historical games through 2025-26.
+                </p>
+            </section>
+
+            <section class="status-region" aria-live="polite">
+                <p id="methodology-status" class="loading-message">Loading model metrics...</p>
+            </section>
+
+            <section
+                id="methodology-content"
+                class="model-section is-hidden"
+                aria-labelledby="model-title"
+            >
+                <div class="section-intro">
+                    <div>
+                        <p class="eyebrow">Model Performance</p>
+                        <h2 id="model-title">Logistic Regression Holdout Results</h2>
+                    </div>
+                    <p>
+                        Models trained on 2018-19 through 2024-25. The full
+                        2025-26 season was held back for the final test.
+                    </p>
+                </div>
+
+                <div id="metric-grid" class="metric-grid" aria-label="Logistic Regression holdout metrics"></div>
+
+                <div class="detail-band">
+                    <article class="detail-panel">
+                        <p class="eyebrow">Selection</p>
+                        <h3>Why Logistic Regression</h3>
+                        <p>
+                            Logistic Regression was selected because it produced
+                            the best Log Loss and Brier Score. That matters here
+                            because the probabilities feed the postseason simulation.
+                            The final model was then retrained using all games
+                            through 2025-26.
+                        </p>
+                    </article>
+
+                    <article class="detail-panel">
+                        <p class="eyebrow">Methodology</p>
+                        <h3>What Powers the Forecast</h3>
+                        <ul class="detail-list">
+                            <li>9,509 NBA regular-season games</li>
+                            <li>Seasons 2018-19 through 2025-26</li>
+                            <li>84 leakage-safe pregame features</li>
+                            <li>Last-5, last-10, and last-20 rolling statistics</li>
+                            <li>Season-to-date features</li>
+                            <li>Rest and back-to-back context</li>
+                            <li>Scaled Logistic Regression</li>
+                            <li>Official 2026-27 schedule data for scheduled-game predictions</li>
+                            <li>Projected records based on team-strength estimates rather than full schedule simulation</li>
+                            <li>10,000-run Monte Carlo postseason simulation</li>
+                            <li>2-2-1-1-1 best-of-seven home-court format</li>
+                        </ul>
+                    </article>
+
+                    <article class="detail-panel">
+                        <p class="eyebrow">Limitations</p>
+                        <h3>How to Read the Projections</h3>
+                        <ul class="detail-list">
+                            <li>The official 2026-27 schedule powers scheduled-game lookup and prediction, including dates, times, arenas, locations, and home/away teams.</li>
+                            <li>Season record projections are team-strength estimates, not a full game-by-game simulation of that schedule.</li>
+                            <li>Injuries are not directly modeled.</li>
+                            <li>Every 2026 offseason roster transaction is not fully modeled.</li>
+                            <li>Projections are probabilistic.</li>
+                            <li>Historical performance does not guarantee future outcomes.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>NBAForecast is an independent portfolio project and is not affiliated with or endorsed by the NBA.</p>
+        </footer>
+    </body>
+</html>

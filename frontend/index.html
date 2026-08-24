@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="NBAForecast dashboard for the 2026-27 preseason forecast and 2027 playoff predictions."
+        >
+        <title>Forecast Overview | NBAForecast</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body data-page="home">
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a class="brand" href="index.html">
+                    <img class="brand-logo" src="../images/nba-logo.png" alt="" aria-hidden="true">
+                    <span>NBAForecast</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html" aria-current="page">Forecast Overview</a>
+                    <a href="season.html">Season Projections</a>
+                    <a href="bracket.html">Playoff Probabilities</a>
+                    <a href="predict.html">Matchup Predictor</a>
+                    <a href="methodology.html">Model / Methodology</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="hero-band" aria-labelledby="page-title">
+                <div class="hero-copy">
+                    <p class="eyebrow">2026-27 NBA Preseason Forecast</p>
+                    <h1 id="page-title">NBAForecast: 2026-27 Preseason &amp; 2027 Playoff Predictions</h1>
+                    <p>
+                        A preseason look at team strength, playoff paths, and title
+                        odds for the 2027 NBA postseason.
+                    </p>
+                </div>
+                <div class="court-visual" aria-hidden="true">
+                    <span class="court-line center"></span>
+                    <span class="court-line lane left"></span>
+                    <span class="court-line lane right"></span>
+                    <span class="court-line arc left"></span>
+                    <span class="court-line arc right"></span>
+                </div>
+            </section>
+
+            <section class="status-region" aria-live="polite">
+                <p id="home-status" class="loading-message">Loading forecast data...</p>
+            </section>
+
+            <div id="home-content" class="is-hidden">
+                <section class="dashboard-grid" aria-label="Forecast overview">
+                    <article class="feature-card champion-card">
+                        <div class="card-label">Projected NBA Champion</div>
+                        <h2 id="champion-name">--</h2>
+                        <p id="champion-summary"></p>
+                        <div class="metric-row">
+                            <span>Championship Probability</span>
+                            <strong id="champion-probability">--</strong>
+                        </div>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="card-label">Projected East Champion</div>
+                        <h2 id="eastern-champion">--</h2>
+                        <p>Most likely Finals team from the Eastern Conference.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="card-label">Projected West Champion</div>
+                        <h2 id="western-champion">--</h2>
+                        <p>Most likely Finals team from the Western Conference.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="card-label">East #1 Seed</div>
+                        <h2 id="east-top-seed">--</h2>
+                        <p>Best projected regular-season record in the East.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="card-label">West #1 Seed</div>
+                        <h2 id="west-top-seed">--</h2>
+                        <p>Best projected regular-season record in the West.</p>
+                    </article>
+
+                    <article class="feature-card finals-card">
+                        <div class="card-label">Highest Projected Wins</div>
+                        <h2 id="top-win-team">--</h2>
+                        <div class="metric-row compact">
+                            <span>Projected wins</span>
+                            <strong id="top-win-total">--</strong>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="insight-band" aria-labelledby="contender-title">
+                    <div>
+                        <p class="eyebrow">2027 Playoff Predictions</p>
+                        <h2 id="contender-title">Championship Contenders</h2>
+                        <p>
+                            These title odds start from the projected standings,
+                            then play the 2027 postseason 10,000 times.
+                        </p>
+                    </div>
+                    <div id="contender-grid" class="contender-grid"></div>
+                </section>
+
+                <section class="overview-links" aria-labelledby="next-title">
+                    <div class="section-intro">
+                        <div>
+                            <p class="eyebrow">Explore the Forecast</p>
+                            <h2 id="next-title">See the Forecast From Different Angles</h2>
+                        </div>
+                        <p>
+                            Jump into projected records, postseason odds, matchup
+                            predictions, or the model details behind the forecast.
+                        </p>
+                    </div>
+                    <div class="link-card-grid">
+                        <a class="link-card" href="season.html">
+                            <span class="mini-label">Season Projections</span>
+                            <strong>Conference standings</strong>
+                            <p>Compare all 30 projected records by conference.</p>
+                        </a>
+                        <a class="link-card" href="bracket.html">
+                            <span class="mini-label">Playoff Probabilities</span>
+                            <strong>Postseason paths</strong>
+                            <p>See Play-In paths, round advancement, Finals, and title odds.</p>
+                        </a>
+                        <a class="link-card" href="predict.html">
+                            <span class="mini-label">Matchup Predictor</span>
+                            <strong>Scheduled games</strong>
+                            <p>Search official 2026-27 matchups and estimate win probabilities.</p>
+                        </a>
+                        <a class="link-card" href="methodology.html">
+                            <span class="mini-label">Model / Methodology</span>
+                            <strong>How it works</strong>
+                            <p>Review evaluation, feature design, and limitations.</p>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>NBAForecast is an independent portfolio project and is not affiliated with or endorsed by the NBA.</p>
+        </footer>
+    </body>
+</html>

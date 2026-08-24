@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="NBAForecast scheduled-game and custom matchup predictor."
+        >
+        <title>Matchup Predictor | NBAForecast</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body data-page="predictor">
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a class="brand" href="index.html">
+                    <img class="brand-logo" src="../images/nba-logo.png" alt="" aria-hidden="true">
+                    <span>NBAForecast</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Forecast Overview</a>
+                    <a href="season.html">Season Projections</a>
+                    <a href="bracket.html">Playoff Probabilities</a>
+                    <a href="predict.html" aria-current="page">Matchup Predictor</a>
+                    <a href="methodology.html">Model / Methodology</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="page-heading" aria-labelledby="page-title">
+                <p class="eyebrow">Matchup Predictor</p>
+                <h1 id="page-title">Predict Scheduled 2026-27 NBA Games</h1>
+                <p>
+                    Search the official schedule, pick a game, and get home-away
+                    win probabilities from the forecast model.
+                </p>
+            </section>
+
+            <section class="status-region" aria-live="polite">
+                <p id="predictor-status" class="loading-message">Loading predictor...</p>
+            </section>
+
+            <section
+                id="predictor-content"
+                class="predictor-section is-hidden"
+                aria-labelledby="predictor-title"
+            >
+                <div class="predictor-grid scheduled-game-grid">
+                    <article class="predictor-panel">
+                        <p class="eyebrow">Scheduled Game Prediction</p>
+                        <h2 id="predictor-title">Find a Scheduled Game</h2>
+                        <form id="game-search-form" class="predictor-form game-search-form">
+                            <label for="game-date-filter">Date</label>
+                            <input
+                                id="game-date-filter"
+                                name="date"
+                                type="date"
+                                min="2026-10-20"
+                                max="2027-04-11"
+                            >
+
+                            <label for="game-team-filter">Team</label>
+                            <select id="game-team-filter" name="team">
+                                <option value="">Any team</option>
+                            </select>
+
+                            <button id="game-search-button" type="submit">
+                                Search Games
+                            </button>
+                        </form>
+                        <p id="game-search-error" class="form-message" role="alert"></p>
+                        <p class="predictor-note">
+                            Choose a date, a team, or both. Results include the
+                            listed tipoff time, arena, and home/away teams from
+                            the official schedule.
+                        </p>
+                    </article>
+
+                    <article class="predictor-panel game-results-panel">
+                        <p class="eyebrow">Matching Games</p>
+                        <h2 id="game-results-title">Select a Game</h2>
+                        <p id="game-results-summary" class="muted-copy">
+                            Use the filters to load matching games.
+                        </p>
+                        <div
+                            id="game-list"
+                            class="game-list"
+                            aria-label="Scheduled games"
+                        ></div>
+                        <button
+                            id="predict-game-button"
+                            class="predict-game-button"
+                            type="button"
+                            disabled
+                        >
+                            Predict Game
+                        </button>
+                    </article>
+                </div>
+
+                <article
+                    id="scheduled-prediction-result"
+                    class="prediction-card scheduled-result-card is-hidden"
+                    aria-live="polite"
+                >
+                    <p class="eyebrow">Scheduled Game Prediction</p>
+                    <h2 id="scheduled-matchup">--</h2>
+                    <div class="game-detail-grid" aria-label="Game details">
+                        <div>
+                            <span>Date</span>
+                            <strong id="scheduled-game-date">--</strong>
+                        </div>
+                        <div>
+                            <span>Tipoff</span>
+                            <strong id="scheduled-game-time">--</strong>
+                        </div>
+                        <div>
+                            <span>Location</span>
+                            <strong id="scheduled-game-location">--</strong>
+                        </div>
+                    </div>
+
+                    <div class="prediction-summary">
+                        <h3 id="scheduled-prediction-winner">--</h3>
+                        <p id="scheduled-prediction-confidence"></p>
+                    </div>
+
+                    <div class="matchup-bars">
+                        <div class="team-probability-row">
+                            <div>
+                                <strong id="scheduled-home-result-team">--</strong>
+                                <span>Home win probability</span>
+                            </div>
+                            <span id="scheduled-home-result-probability">--</span>
+                            <div class="probability-meter">
+                                <span id="scheduled-home-result-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="team-probability-row">
+                            <div>
+                                <strong id="scheduled-away-result-team">--</strong>
+                                <span>Away win probability</span>
+                            </div>
+                            <span id="scheduled-away-result-probability">--</span>
+                            <div class="probability-meter">
+                                <span id="scheduled-away-result-bar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <section class="custom-matchup-section" aria-labelledby="custom-title">
+                    <div class="section-intro">
+                        <div>
+                            <p class="eyebrow">Custom Matchup</p>
+                            <h2 id="custom-title">Compare any two teams</h2>
+                        </div>
+                        <p>
+                            Curious about a matchup outside the schedule view?
+                            Pick any home and away team.
+                        </p>
+                    </div>
+
+                    <div class="predictor-grid">
+                        <article class="predictor-panel">
+                            <p class="eyebrow">Team Selection</p>
+                            <h3>Set the Matchup</h3>
+                            <form id="predictor-form" class="predictor-form">
+                                <label for="home-team-select">Home Team</label>
+                                <select id="home-team-select" name="home_team" required></select>
+
+                                <label for="away-team-select">Away Team</label>
+                                <select id="away-team-select" name="away_team" required></select>
+
+                                <button id="predict-button" type="submit">
+                                    Predict Matchup
+                                </button>
+                            </form>
+                            <p id="predictor-error" class="form-message" role="alert"></p>
+                            <p class="predictor-note">
+                                Predictions use preseason team-strength estimates based
+                                on data through the 2025-26 season and do not directly
+                                account for injuries or every offseason roster change.
+                            </p>
+                        </article>
+
+                        <article
+                            id="prediction-result"
+                            class="prediction-card is-hidden"
+                            aria-live="polite"
+                        >
+                            <p class="eyebrow">Custom Matchup Prediction</p>
+                            <h2 id="prediction-winner">--</h2>
+                            <p id="prediction-confidence"></p>
+
+                            <div class="matchup-bars">
+                                <div class="team-probability-row">
+                                    <div>
+                                        <strong id="home-result-team">--</strong>
+                                        <span>Home win probability</span>
+                                    </div>
+                                    <span id="home-result-probability">--</span>
+                                    <div class="probability-meter">
+                                        <span id="home-result-bar"></span>
+                                    </div>
+                                </div>
+
+                                <div class="team-probability-row">
+                                    <div>
+                                        <strong id="away-result-team">--</strong>
+                                        <span>Away win probability</span>
+                                    </div>
+                                    <span id="away-result-probability">--</span>
+                                    <div class="probability-meter">
+                                        <span id="away-result-bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>NBAForecast is an independent portfolio project and is not affiliated with or endorsed by the NBA.</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="NBAForecast projected 2026-27 regular-season records by conference."
+        >
+        <title>Season Projections | NBAForecast</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body data-page="season">
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a class="brand" href="index.html">
+                    <img class="brand-logo" src="../images/nba-logo.png" alt="" aria-hidden="true">
+                    <span>NBAForecast</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Forecast Overview</a>
+                    <a href="season.html" aria-current="page">Season Projections</a>
+                    <a href="bracket.html">Playoff Probabilities</a>
+                    <a href="predict.html">Matchup Predictor</a>
+                    <a href="methodology.html">Model / Methodology</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="page-heading" aria-labelledby="page-title">
+                <p class="eyebrow">Season Projections</p>
+                <h1 id="page-title">Projected 2026-27 Records</h1>
+                <p>
+                    These are preseason strength estimates for an 82-game season.
+                    The scheduled-game predictor uses the official 2026-27 schedule,
+                    but these records are not built from a full game-by-game schedule simulation.
+                </p>
+            </section>
+
+            <section class="status-region" aria-live="polite">
+                <p id="season-status" class="loading-message">Loading season projections...</p>
+            </section>
+
+            <section
+                id="season-content"
+                class="table-section is-hidden"
+                aria-labelledby="season-table-title"
+            >
+                <div class="section-intro">
+                    <div>
+                        <p class="eyebrow">Conference Tables</p>
+                        <h2 id="season-table-title">Projected Standings by Conference</h2>
+                    </div>
+                    <p>
+                        Seeds 1-6 are direct playoff spots. Seeds 7-10 enter the
+                        simulated Play-In Tournament. Seeds 11-15 are outside the
+                        projected postseason field.
+                    </p>
+                </div>
+
+                <div class="table-controls" aria-label="Season table sorting">
+                    <button type="button" data-season-sort="wins" aria-pressed="true">
+                        Projected Wins
+                    </button>
+                    <button type="button" data-season-sort="team" aria-pressed="false">
+                        Team
+                    </button>
+                </div>
+
+                <div class="conference-table-grid season-grid">
+                    <article class="conference-table-card">
+                        <h3>Eastern Conference</h3>
+                        <div class="table-wrap season-table">
+                            <table>
+                                <caption>Eastern Conference projected records</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Seed</th>
+                                        <th scope="col">Team</th>
+                                        <th scope="col">Projected W-L</th>
+                                        <th scope="col">Win Pct</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="season-eastern-body"></tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <article class="conference-table-card">
+                        <h3>Western Conference</h3>
+                        <div class="table-wrap season-table">
+                            <table>
+                                <caption>Western Conference projected records</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Seed</th>
+                                        <th scope="col">Team</th>
+                                        <th scope="col">Projected W-L</th>
+                                        <th scope="col">Win Pct</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="season-western-body"></tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>NBAForecast is an independent portfolio project and is not affiliated with or endorsed by the NBA.</p>
+        </footer>
+    </body>
+</html>
