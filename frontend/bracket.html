@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="NBAForecast 2027 postseason simulation probabilities by conference."
+        >
+        <title>Playoff Probabilities | NBAForecast</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body data-page="playoffs">
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="top-nav" aria-label="Primary navigation">
+                <a class="brand" href="index.html">
+                    <img class="brand-logo" src="../images/nba-logo.png" alt="" aria-hidden="true">
+                    <span>NBAForecast</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Forecast Overview</a>
+                    <a href="season.html">Season Projections</a>
+                    <a href="bracket.html" aria-current="page">Playoff Probabilities</a>
+                    <a href="predict.html">Matchup Predictor</a>
+                    <a href="methodology.html">Model / Methodology</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="page-heading" aria-labelledby="page-title">
+                <p class="eyebrow">2027 Playoff Predictions</p>
+                <h1 id="page-title">Postseason Simulation Probabilities</h1>
+                <p>
+                    These probabilities start from the projected 2026-27 standings.
+                    The 10,000 simulations cover the postseason, not every regular-season game.
+                </p>
+            </section>
+
+            <section class="status-region" aria-live="polite">
+                <p id="playoff-status" class="loading-message">Loading playoff probabilities...</p>
+            </section>
+
+            <div id="playoff-content" class="is-hidden">
+                <section class="playoff-leaders" aria-labelledby="leader-title">
+                    <div class="section-intro">
+                        <div>
+                            <p class="eyebrow">Championship Outlook</p>
+                            <h2 id="leader-title">Top Title Contenders</h2>
+                        </div>
+                        <p>
+                            After the projected seeds are set, each run plays through
+                            the Play-In, every best-of-seven series, and the Finals.
+                        </p>
+                    </div>
+                    <div id="playoff-leader-grid" class="contender-grid large"></div>
+                </section>
+
+                <section class="table-section" aria-labelledby="playoff-table-title">
+                    <div class="section-intro">
+                        <div>
+                            <p class="eyebrow">Conference Paths</p>
+                            <h2 id="playoff-table-title">2027 Postseason Simulation Probabilities</h2>
+                        </div>
+                        <p>
+                            Make Playoffs is 100% for projected seeds 1-6, comes
+                            from Play-In outcomes for seeds 7-10, and is 0% for
+                            seeds 11-15.
+                        </p>
+                    </div>
+
+                    <div class="conference-table-grid playoff-grid">
+                        <article class="conference-table-card">
+                            <h3>Eastern Conference</h3>
+                            <div class="table-wrap playoff-table">
+                                <table>
+                                    <caption>Eastern Conference postseason probabilities</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Seed</th>
+                                            <th scope="col">Team</th>
+                                            <th scope="col">Make Playoffs</th>
+                                            <th scope="col">Conf Semis</th>
+                                            <th scope="col">Conf Finals</th>
+                                            <th scope="col">NBA Finals</th>
+                                            <th scope="col">Championship</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="playoff-eastern-body"></tbody>
+                                </table>
+                            </div>
+                        </article>
+
+                        <article class="conference-table-card">
+                            <h3>Western Conference</h3>
+                            <div class="table-wrap playoff-table">
+                                <table>
+                                    <caption>Western Conference postseason probabilities</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Seed</th>
+                                            <th scope="col">Team</th>
+                                            <th scope="col">Make Playoffs</th>
+                                            <th scope="col">Conf Semis</th>
+                                            <th scope="col">Conf Finals</th>
+                                            <th scope="col">NBA Finals</th>
+                                            <th scope="col">Championship</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="playoff-western-body"></tbody>
+                                </table>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>NBAForecast is an independent portfolio project and is not affiliated with or endorsed by the NBA.</p>
+        </footer>
+    </body>
+</html>
