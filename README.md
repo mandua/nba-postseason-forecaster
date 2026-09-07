@@ -1,3 +1,6 @@
+# LIVE DEMO
+https://mandua.github.io/nba-postseason-forecaster/
+
 # NBA Forecast
 NBAForecast is an AI-trained model which can predict NBA game outcomes, 2026-27 team records, the 2027 postseason, and also serves an interactive scheduled-game predictor. The project combines machine learning, Monte Carlo simulation, backend APIs, and a responsive web frontend.
 
