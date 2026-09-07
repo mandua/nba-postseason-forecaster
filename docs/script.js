@@ -7,7 +7,20 @@ const DATA_URLS = {
     evaluation: "data/model_evaluation.csv"
 };
 
-const API_BASE_URL = globalThis.NBA_API_BASE_URL || "http://localhost:8001";
+const LOCAL_API_BASE_URL = "http://localhost:8001";
+const RENDER_API_BASE_URL = "https://nba-postseason-forecaster.onrender.com";
+const API_BASE_URL = getApiBaseUrl();
+
+function getApiBaseUrl() {
+    if (globalThis.NBA_API_BASE_URL) {
+        return globalThis.NBA_API_BASE_URL;
+    }
+
+    const hostname = globalThis.location?.hostname;
+    const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1";
+
+    return isLocalhost ? LOCAL_API_BASE_URL : RENDER_API_BASE_URL;
+}
 
 const SUMMARY_FIELDS = {
     forecastLabel: "forecast_label",
