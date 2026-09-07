@@ -1,0 +1,46 @@
+{
+    "forecast_label": "2026-27 Preseason Forecast",
+    "projected_eastern_conference_1_seed": "DET",
+    "projected_western_conference_1_seed": "SAS",
+    "highest_projected_regular_season_win_total": {
+        "team": "SAS",
+        "projected_wins": 59
+    },
+    "most_likely_eastern_conference_champion": "DET",
+    "most_likely_western_conference_champion": "SAS",
+    "most_likely_nba_champion": "SAS",
+    "championship_probability": 0.3188,
+    "model_evaluation_metrics": [
+        {
+            "MODEL": "Logistic Regression",
+            "ACCURACY": 0.6628571428571428,
+            "ROC_AUC": 0.7240218053914667,
+            "LOG_LOSS": 0.6101821621825536,
+            "BRIER_SCORE": 0.2106497554875173
+        },
+        {
+            "MODEL": "HistGradientBoosting",
+            "ACCURACY": 0.6669387755102041,
+            "ROC_AUC": 0.7209414297043164,
+            "LOG_LOSS": 0.6131658861525009,
+            "BRIER_SCORE": 0.2115340407890283
+        },
+        {
+            "MODEL": "Random Forest",
+            "ACCURACY": 0.6587755102040816,
+            "ROC_AUC": 0.7234782890158442,
+            "LOG_LOSS": 0.6146330637962064,
+            "BRIER_SCORE": 0.2126580739768111
+        },
+        {
+            "MODEL": "Dummy Baseline",
+            "ACCURACY": 0.5542857142857143,
+            "ROC_AUC": 0.5,
+            "LOG_LOSS": 0.6872620828761978,
+            "BRIER_SCORE": 0.2470631383565696
+        }
+    ],
+    "methodology_note": "This 2026-27 preseason forecast uses the production forecast model, preseason team-state estimates derived from historical NBA data through the 2025-26 season, and Monte Carlo playoff simulation.",
+    "limitation_note": "This initial preseason model does not directly account for injuries or every offseason roster change.",
+    "projection_note": "Projected regular-season records are model-implied preseason strength projections rather than simulations of every official 2026-27 scheduled game. The official schedule is used separately for scheduled-game lookup and prediction."
+}

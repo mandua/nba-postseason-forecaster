@@ -1,10 +1,10 @@
 "use strict";
 
 const DATA_URLS = {
-    summary: "../data/forecast_2026_27_summary.json",
-    season: "../data/season_2026_27_predictions.csv",
-    playoffs: "../data/2027_playoff_probabilities.csv",
-    evaluation: "../data/model_evaluation.csv"
+    summary: "data/forecast_2026_27_summary.json",
+    season: "data/season_2026_27_predictions.csv",
+    playoffs: "data/2027_playoff_probabilities.csv",
+    evaluation: "data/model_evaluation.csv"
 };
 
 const API_BASE_URL = globalThis.NBA_API_BASE_URL || "http://localhost:8001";

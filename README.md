@@ -123,17 +123,17 @@ python3 -m pip install pandas numpy scikit-learn nba_api joblib fastapi uvicorn 
 uvicorn backend.app:app --reload --port 8001
 ```
 
-3. In a second terminal, start the static frontend server:
+3. In a second terminal, start the static site server:
 ```bash
 python3 -m http.server 8000
 ```
 
 4. Open the site:
 ```text
-http://localhost:8000/frontend/
+http://localhost:8000/docs/
 ```
 
-The frontend expects the backend at `http://localhost:8001`.
+The static site expects the backend at `http://localhost:8001`.
 
 ## Project Structure
 ```text
@@ -152,14 +152,21 @@ The frontend expects the backend at `http://localhost:8001`.
 │   ├── 2027_playoff_probabilities.csv
 │   ├── forecast_2026_27_summary.json
 │   └── nba_schedule_2026_27.csv
-├── frontend/
+├── docs/
 │   ├── index.html                     # Forecast overview
 │   ├── season.html                    # Season projections
 │   ├── bracket.html                   # Playoff probabilities
 │   ├── predict.html                   # Scheduled-game predictor
 │   ├── methodology.html               # Model and methodology
+│   ├── data/                          # Static forecast files for GitHub Pages
+│   ├── images/                        # Static logo asset
 │   ├── script.js
 │   └── style.css
+├── images/
+│   ├── forecast-overview.png          # README screenshot
+│   ├── season-projections.png         # README screenshot
+│   ├── playoff-probabilities.png      # README screenshot
+│   └── game-predictor.png             # README screenshot
 ├── models/
 │   ├── nba_win_model.joblib
 │   ├── nba_win_model_holdout.joblib
